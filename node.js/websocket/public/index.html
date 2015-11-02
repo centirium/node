@@ -1,0 +1,94 @@
+<!DOCTYPE html>     
+ <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>WebSockets</title>
+        <meta name="description" content="Webworkers sample">
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+     
+     
+        <!-- Add your site or application content here -->
+ 
+        <script>
+$( document ).ready(function() {
+ 
+    var SERVER = 'http://localhost:8666/';
+ 
+  var webSocket = io.connect(SERVER);
+  var username;
+ 
+  $('#enter').click(function() {
+    console.log('Log in server with: ' + $('#login').val());
+    // I introduce myself to the server
+    webSocket.emit('myname', { name: $('#login').val() });
+    username = $('#login').val();
+    $('#logindiv').hide();
+    $('#chatdiv').show();
+  });
+ 
+  /**
+  * If servers emit a message with 'fromserver' header
+  * we handle here.
+  */
+  webSocket.on('fromserver', function (data) {
+        console.log('Received from server: ' + data.msg);
+        $('#chattext').append('<div class="chat">' + data.msg +'</div>');
+        $('#chattext')[0].scrollTop = $('#chattext')[0].scrollHeight;
+  });
+ 
+ 
+    /**
+    * when user press enter in textfield we sent the message
+    */
+    $('#usertext').keypress(function (event) {
+        var dataToSend = $('#usertext').val();
+        if (event.which == 13) {
+            $('#chattext').append('<div class="chatlog">' + dataToSend +' sent</div>');
+            $('#chattext')[0].scrollTop = $('#chattext')[0].scrollHeight;
+            //$('#chattext').append('(' + dataToSend +' sent)\n');         
+ 
+            console.log('Sending to server: ' + dataToSend);
+            webSocket.emit('fromclient', { msg: username+': '+dataToSend });
+            $('#usertext').val("");
+        }
+    });
+           
+});
+</script>
+<style>
+#chatdiv {
+  display: none;
+}
+.chatlog {
+  font-style: italic;
+  color: lightGray;
+}
+
+.chat {
+}
+
+#chattext {
+  width:400px;
+  height: 100px; 
+  overflow-y: scroll;
+  /*overflow: hidden;*/
+}
+</style>
+</head>
+
+<body> 
+    <h5>Web Sockets sample</h5>
+
+<div id="logindiv">
+       <p>Hello Web Sockets</p>
+ <input type="text" name="login" id="login" value="" placeholder="Your login...">
+<input type="button" name="enter" id="enter" value="Enter">
+</div>
+ 
+<div id="chatdiv" style="display:none;">
+<div name="chattext" id="chattext"></div><br>
+<label for="usertext">Your answer</label><br>
+<input type="text" name="usertext" id="usertext" value="" placeholder="Write and press enter">
+</div>

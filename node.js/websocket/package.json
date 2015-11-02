@@ -1,0 +1,23 @@
+{
+  "name": "websocket-sample",
+  "version": "0.0.1",
+  "description": "Websocket chat server sample",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://eugenia_perez@github.com/websocket-sample.git"
+  },
+  "keywords": [
+    "websocket",
+    "socket.io",
+    "chat"
+  ],
+  "author": "Eugenia Pérez",
+  "license": "GPL2",
+  "dependencies": {
+    "socket.io": "^1.3.5"
+  }
+}

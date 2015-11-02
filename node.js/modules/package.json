@@ -1,0 +1,26 @@
+{
+  "name": "modules",
+  "version": "1.0.0",
+  "description": "Example of how to use modules in Node.js",
+  "main": "useModule.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/pxai/modules"
+  },
+  "keywords": [
+    "node.js",
+    "modules"
+  ],
+  "author": "Pello Altadill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pxai/modules/issues"
+  },
+  "homepage": "https://github.com/pxai/modules",
+  "dependencies": {
+    "colors": "^1.1.2"
+  }
+}

@@ -1,0 +1,5 @@
+ Greetings students!
+  This is just a text file,
+  used in this Node.js program
+  to open and read the contents.
+  All hail the asynchronous code.

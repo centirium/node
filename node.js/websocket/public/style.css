@@ -1,0 +1,17 @@
+#chatdiv {
+  display: none;
+}
+.chatlog {
+  font-style: italic;
+  color: lightGray;
+}
+
+.chat {
+}
+
+#chattext {
+  width:400px;
+  height: 100px; 
+  overflow-y: scroll;
+  /*overflow: hidden;*/
+}

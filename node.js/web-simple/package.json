@@ -1,0 +1,29 @@
+{
+  "name": "web-simple",
+  "version": "1.0.0",
+  "description": "Simple web projects for Node.js",
+  "main": "hello-mongoose.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/pxai/simple-web"
+  },
+  "keywords": [
+    "web",
+    "express",
+    "node",
+    "mongoose"
+  ],
+  "author": "Pello Altadill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pxai/simple-web/issues"
+  },
+  "homepage": "https://github.com/pxai/simple-web",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongoose": "^4.2.3"
+  }
+}
